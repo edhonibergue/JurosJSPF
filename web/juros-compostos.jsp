@@ -15,8 +15,8 @@
     <body>
         <%@include file = "WEB-INF/jspf/navBar.jspf"%>
         <div class ="container-fluid">
-            <h1>Juros Composto</h1>
-            
+            <h1>Juros Composto</h1>    
+        </div>
             <div class="container-fluid">
             <form>
                 <div class="mb-3">
@@ -36,8 +36,8 @@
             
             <%
             String error = null;
-            float vp=1, juros=1;
-            int tempo=1;
+            float vp=0, juros=0;
+            int tempo=0;
             try
             {
                 String p1 = request.getParameter("vp");
@@ -58,14 +58,15 @@
     <tr class="table-active">
     </tr>
     <tr>
-      <th scope="col">TEMPO (MESES)</th>
+        <hr/>
+      <th scope="col">Tempo (Meses)</th>
       <td scope="col"> Valor Presente</td>
       <td>Valor futuro</td>
     </tr>
      <% for(int i=1; i<=tempo; i++){
            if(error != null){
-                out.println("<span style='color:red'>Erro ao tentar ler parametros</span>");
-            } else {%>
+                out.println("Erro ao tentar ler parametros");
+            }  {%>
     <tr>
       <th scope="col"><%= i %></th>
       <td scope="col"><%= String.format("<p>%.2f</p>",vp) %></td>
